@@ -1,0 +1,109 @@
+/* game board table */
+
+body {
+  margin: 0px;
+  background-color: rgb(68, 68, 68);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+#game {
+  background-color: rgb(0, 0, 170);
+  border-radius: 10px;
+}
+
+#board td {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.543);
+  border-radius: 100px;
+  z-index: 2;
+}
+
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+  /* TODO: make into circles */
+  margin: 5px;
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  animation: dropWithBounce 1.5s cubic-bezier(.93, .77, 1, .73);
+  box-shadow: .05em .05em .1em;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.fa-face-smile:before {
+  color: white;
+  position: absolute;
+  font-size: 30px;
+  top: 50%;
+  left: 50%;
+  margin: -15px 0 0 -15px;
+  animation: spin .8s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotatey(0deg);
+
+  }
+
+  to {
+    transform: rotatey(360deg);
+  }
+}
+
+@keyframes dropWithBounce {
+
+  20%,
+  50%,
+  80%,
+  to {
+    transform: translateY(0px);
+  }
+
+  90% {
+    transform: translateY(-5px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+
+  30% {
+    transform: translateY(-20px);
+  }
+
+  from {
+    transform: translateY(-250px);
+  }
+
+
+}
+
+/* TODO: make pieces red/blue,  depending on player 1/2 piece */
+
+.piece.player1 {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.piece.player2 {
+  background-color: rgba(0, 0, 255, 1);
+}
+
+/* column-top is table row of clickable areas for each column */
+
+#column-top td {
+  background: white;
+  border-radius: 100%;
+}
+
+#column-top td:hover {
+  background-color: rgba(71, 71, 71, 0.865);
+  border-radius: 100%;
+}
