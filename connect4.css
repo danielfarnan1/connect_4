@@ -44,18 +44,6 @@ body {
   top: 50%;
   left: 50%;
   margin: -15px 0 0 -15px;
-  animation: spin .8s linear;
-}
-
-@keyframes spin {
-  from {
-    transform: rotatey(0deg);
-
-  }
-
-  to {
-    transform: rotatey(360deg);
-  }
 }
 
 @keyframes dropWithBounce {
